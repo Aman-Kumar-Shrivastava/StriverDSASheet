@@ -1,0 +1,26 @@
+class Solution {
+    public boolean check(int[] nums) {
+        boolean foundDrop = false;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+
+            if (nums[i] > nums[i + 1]) {
+
+                if (foundDrop) {
+                    return false; // second drop found
+                }
+
+                foundDrop = true;
+
+                // last element must be <= first element
+                if (nums[nums.length - 1] > nums[0]) {
+                    return false;
+                }
+            }
+        }
+        // whenever the loop find no. greater than the previous number, it increases the drop count ++ , 
+        //if count is zero, it means soted else not
+
+        return true;
+    }
+}
